@@ -9,12 +9,12 @@
   .container-fluid{
     display: flex;
   }
-  
+
   .container-fluid .content{
     width: 100%;
     margin-left: 300px;
   }
-  
+
   .container-fluid .content .info{
     margin: 20px;
     color: #717171;
@@ -24,7 +24,7 @@
   .container-fluid .content .info div{
     /* margin-bottom: 15px; */
   }
-  
+
   .card-header{
     font-size: 22px;
     font-weight: 400;
@@ -42,8 +42,8 @@
   .skills{
     overflow-y: auto;
   }
-  
-  
+
+
   .btnCancel{
     width: 119px;
     height: 48px;
@@ -59,7 +59,7 @@
     text-align: left;
     color: #757575;
   }
-  
+
   .btnSave{
     width: 119px;
     height: 48px;
@@ -75,7 +75,7 @@
     text-align: left;
     color: #f88634;
   }
-  
+
   .dropZone{
     border: 1px dashed #aaa;
     height: 65px;
@@ -87,7 +87,7 @@
     display: table-cell;
     vertical-align: middle;
   }
-  
+
   .btnremove{
     margin-top: -203%;
     margin-left: 70%;
@@ -98,4 +98,3 @@
   .btnremove:hover{
     background-color: #aaa;
   }
-  

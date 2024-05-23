@@ -36,8 +36,13 @@ export class UserComponent implements OnInit {
     },err=>this.toast.error({detail:"ERROR",summary:err.error.message,duration:3000}));
   }
 
-  
-  CloseRemoveMissionModal(){
+  OpenRemoveUserModal(id: any){
+    this.userId = id;
+    this.deleteModal.show();
+  }
+
+
+  CloseRemoveUserModal(){
     this.deleteModal.hide();
   }
   DeleteUser(){
