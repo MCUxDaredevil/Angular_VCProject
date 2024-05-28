@@ -1,0 +1,84 @@
+{
+  "Login" : {
+    "/Login/Register": {
+      "type": "post",
+      "input": {
+        "user": {
+          "id": "number=0",
+          "firstName": "string",
+          "lastName": "string",
+          "phoneNumber": "string",
+          "emailAddress": "string",
+          "password": "string",
+          "userType": "string",
+          "userImage": "any"
+        }
+      },
+      "output": "json"
+    },
+    "/Login/GetUserById/${id}": {
+      "type": "get",
+      "input": {
+        "id": "number"
+      },
+      "output": "user"
+    },
+    "/Login/UpdateUser": {
+      "type": "post",
+      "input": {
+        "user": {
+          "id": "number",
+          "firstName": "string",
+          "lastName": "string",
+          "phoneNumber": "string",
+          "emailAddress": "string",
+          "password": "string",
+          "userType": "string",
+          "userImage": "any"
+        }
+      },
+      "output": "json"
+    },
+    "/Login/LoginUser": {
+      "type": "post",
+      "input": [
+        "EmailAddress",
+        "Password"
+      ],
+      "output": {
+        "data": {
+          "message": "Login Successfully | Invalid Email or Password",
+          "data": "token"
+        }
+      }
+    },
+    "/Login/ForgotPassword": {
+      "type": "post",
+      "input": [
+        "EmailAddress"
+      ],
+      // define the input parameters
+      "output": "json"
+    },
+    "/Login/ChangePassword": {
+      "type": "post",
+      "input": [
+        "EmailAddress",
+        "OldPassword",
+        "NewPassword"
+      ],
+      // define the input parameters
+      "output": "json"
+    },
+    "/Login/ResetPassword": {
+      // what is this for?
+      "type": "post",
+      "input": [
+        "EmailAddress",
+        "Password"
+      ],
+      // define the input parameters
+      "output": "json"
+    }
+  }
+}

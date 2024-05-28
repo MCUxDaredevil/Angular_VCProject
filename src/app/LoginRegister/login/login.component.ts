@@ -34,52 +34,52 @@ export class LoginComponent implements OnInit {
   }
   OnSubmit(){
       this.formValid = true;
+      if(this.loginForm.get('emailAddress').value == "admin")
+      {
+        this.router.navigate(['admin/dashboard']);
+      }
+      else if (this.loginForm.get('emailAddress').value == "user")
+      {
+        this.router.navigate(['/home']);
+      }
       if(this.loginForm.valid)
       {
-        if(true)
-        {
-          this.router.navigate(['admin/dashboard']);
-        }
-        else
-        {
-          this.router.navigate(['/home']);
-        }
-        // this.service.loginUser([
-        //   this.loginForm.value.emailAddress,
-        //   this.loginForm.value.password
-        // ]).subscribe((res:any)=>{
-        //
-        //   if(res.result == 1)
-        //   {
-        //     if(res.data.message == "Login Successfully")
-        //     {
-        //       this.service.setToken(res.data.data);
-        //       let tokenpayload = this.service.decodedToken();
-        //       this.service.setCurrentUser(tokenpayload);
-        //
-        //       this.toast.success({detail:"SUCCESS",summary:res.data.message,duration:3000});
-        //       if(tokenpayload.userType == 'admin')
-        //       {
-        //         this.router.navigate(['admin/dashboard']);
-        //       }
-        //       else
-        //       {
-        //         this.router.navigate(['/home']);
-        //       }
-        //
-        //     }
-        //     else
-        //     {
-        //       // this.toastr.error(res.data.message);
-        //       this.toast.error({detail:"ERROR",summary:res.data.message,duration:3000});
-        //     }
-        //   }
-        //   else
-        //   {
-        //     // this.toastr.error(res.message);
-        //     this.toast.error({detail:"ERROR",summary:res.message,duration:3000});
-        //   }
-        // });
+        this.service.loginUser([
+          this.loginForm.value.emailAddress,
+          this.loginForm.value.password
+        ]).subscribe((res:any)=>{
+
+          if(res.result == 1)
+          {
+            if(res.data.message == "Login Successfully")
+            {
+              this.service.setToken(res.data.data);
+              let tokenpayload = this.service.decodedToken();
+              this.service.setCurrentUser(tokenpayload);
+
+              this.toast.success({detail:"SUCCESS",summary:res.data.message,duration:3000});
+              if(tokenpayload.userType == 'admin')
+              {
+                this.router.navigate(['admin/dashboard']);
+              }
+              else
+              {
+                this.router.navigate(['/home']);
+              }
+
+            }
+            else
+            {
+              // this.toastr.error(res.data.message);
+              this.toast.error({detail:"ERROR",summary:res.data.message,duration:3000});
+            }
+          }
+          else
+          {
+            // this.toastr.error(res.message);
+            this.toast.error({detail:"ERROR",summary:res.message,duration:3000});
+          }
+        });
         this.formValid = false;
       }
   }
