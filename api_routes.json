@@ -1,5 +1,5 @@
 {
-  "Login" : {
+  "Login": {
     "/Login/Register": {
       "type": "post",
       "input": {
@@ -41,10 +41,7 @@
     },
     "/Login/LoginUser": {
       "type": "post",
-      "input": [
-        "EmailAddress",
-        "Password"
-      ],
+      "input": ["EmailAddress", "Password"],
       "output": {
         "data": {
           "message": "Login Successfully | Invalid Email or Password",
@@ -54,31 +51,33 @@
     },
     "/Login/ForgotPassword": {
       "type": "post",
-      "input": [
-        "EmailAddress"
-      ],
+      "input": ["EmailAddress"],
       // define the input parameters
       "output": "json"
     },
     "/Login/ChangePassword": {
       "type": "post",
-      "input": [
-        "EmailAddress",
-        "OldPassword",
-        "NewPassword"
-      ],
+      "input": ["EmailAddress", "OldPassword", "NewPassword"],
       // define the input parameters
       "output": "json"
     },
     "/Login/ResetPassword": {
       // what is this for?
       "type": "post",
-      "input": [
-        "EmailAddress",
-        "Password"
-      ],
+      "input": ["EmailAddress", "Password"],
       // define the input parameters
       "output": "json"
+    },
+    "/Login/DeleteUser": {
+      // verify this definition
+      "type": "post",
+      "input": {
+        "id": "number"
+      },
+      "output": "json"
     }
-  }
+  },
+  "Mission": {},
+  "MissionTheme": {},
+  "MissionSkill": {}
 }

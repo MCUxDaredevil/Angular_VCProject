@@ -23,7 +23,9 @@
       "dom"
     ],
     "strictPropertyInitialization": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+//    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
