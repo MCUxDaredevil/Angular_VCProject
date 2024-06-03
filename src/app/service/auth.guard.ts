@@ -16,8 +16,8 @@ export class AuthGuard implements CanActivate {
       }
       else
       {
-        this.toastr.error({detail:"ERROR",summary:'Invalid Client Request',duration:3000});
-        this.router.navigate(['admin']);
+        this.toastr.error({detail:"ERROR",summary:'Unauthorized Request',duration:3000});
+        this.router.navigate(['']);
         return false;
       }
   }

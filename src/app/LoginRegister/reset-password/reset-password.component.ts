@@ -34,7 +34,7 @@ export class ResetPasswordComponent implements OnInit,AfterViewInit {
   }
   resetFormCheck(){
       this.resetForm = this.fb.group({
-        password:[null,Validators.compose([Validators.required,Validators.minLength(5),Validators.maxLength(10)])],
+        password:[null,Validators.compose([Validators.required,Validators.minLength(3),Validators.maxLength(10)])],
         confirmPassword:[null,Validators.compose([Validators.required])]
       },{validator : [this.passwordCompareValidator],});
   }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import {apiUrl, imageUrl} from '../../config.json';
+import config from '../../config.json';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +9,8 @@ import {apiUrl, imageUrl} from '../../config.json';
 export class CommonService {
 
   constructor(private http:HttpClient) { }
-  apiUrl:string=apiUrl;
-  imageUrl:string=imageUrl;
+  apiUrl:string=config.apiUrl;
+  imageUrl:string=config.imageUrl;
   searchList : BehaviorSubject<any> = new BehaviorSubject<any>('');
 
   GetMissionCountryList(){

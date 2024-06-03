@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { MissionApplication } from '../model/missionApplication.model';
 import { MissionTheme } from '../model/missionTheme.model';
 import { MissionSkill } from '../model/missionSkill.model';
-import {apiUrl, imageUrl} from '../../config.json';
+import config from '../../config.json';
 
 @Injectable({
   providedIn: 'root',
@@ -18,8 +18,8 @@ export class AdminsideServiceService {
     public toastr: ToastrService,
     public router: Router
   ) {}
-  apiUrl = apiUrl;
-  imageUrl = imageUrl;
+  apiUrl = config.apiUrl;
+  imageUrl = config.imageUrl;
 
   //User
   UserList(): Observable<any[]> {

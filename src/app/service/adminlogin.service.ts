@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { user } from '../model/user.model';
 import {JwtHelperService} from  '@auth0/angular-jwt';
-import {apiUrl, imageUrl} from '../../config.json';
+import config from '../../config.json';
 @Injectable({
   providedIn: 'root'
 })
 export class AdminloginService {
-  apiUrl:string=`${apiUrl}/Login`;
-  imageUrl:string=imageUrl;
+  apiUrl:string=`${config.apiUrl}/Login`;
+  imageUrl:string=config.imageUrl;
 
   currentUser : BehaviorSubject<any> = new BehaviorSubject(null);
   currentUserName : BehaviorSubject<any> = new BehaviorSubject(null);

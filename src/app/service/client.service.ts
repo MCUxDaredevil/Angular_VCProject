@@ -5,7 +5,7 @@ import { City, Country, Mission } from '../model/cms.model';
 import { MissionApplication } from '../model/missionApplication.model';
 import { user, UserDetail } from '../model/user.model';
 import { VolunteeringGoals, VolunteeringHours } from '../model/volunteering.model';
-import {apiUrl, imageUrl} from '../../config.json';
+import config from '../../config.json';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ import {apiUrl, imageUrl} from '../../config.json';
 export class ClientService {
 
   constructor(private http:HttpClient) { }
-  apiUrl:string=apiUrl;
-  imageUrl:string=imageUrl;
+  apiUrl:string=config.apiUrl;
+  imageUrl:string=config.imageUrl;
 
   //HomePage
   MissionList(userId:any):Observable<Mission[]>{
