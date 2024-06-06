@@ -51,7 +51,7 @@ export class AddMissionComponent implements OnInit {
       missionThemeId: [null, Validators.compose([Validators.required])],
       missionSkillId: [null, Validators.compose([Validators.required])],
       missionImages: [null, Validators.compose([Validators.required])],
-      totalSheets: [null, Validators.compose([Validators.required])]
+      totalSheets: [null, Validators.compose([Validators.required, Validators.min(1)])]
     });
   }
 
@@ -98,6 +98,11 @@ export class AddMissionComponent implements OnInit {
     });
   }
 
+  // onCityChange(event: any) {
+  //   const selectedOptionText = event.target.options[event.target.selectedIndex].text;
+  //   console.log(selectedOptionText); // This will log the text of the selected option
+  // }
+
   GetMissionSkillList() {
     this.service.GetMissionSkillList().subscribe((data: any) => {
       if (data.result == 1) {
@@ -141,20 +146,25 @@ export class AddMissionComponent implements OnInit {
   }
 
   async OnSubmit() {
+    console.log(this.addMissionForm.get('cityId'))
     this.formValid = true;
     let imageUrl: any[] = [];
     let value = this.addMissionForm.value;
     value.missionSkillId = Array.isArray(value.missionSkillId) ? value.missionSkillId.join(',') : value.missionSkillId;
+
     if (this.addMissionForm.valid) {
       if (this.imageListArray.length > 0) {
         await this.service.UploadImage(this.formData).pipe().toPromise().then((res: any) => {
           if (res.success) {
             imageUrl = res.data;
+            console.log("Img uploaded", imageUrl);
           }
         }, err => { this.toast.error({ detail: "ERROR", summary: err.message, duration: 3000 }) });
       }
       let imgUrlList = imageUrl.map(e => e.replace(/\s/g, "")).join(",");
       value.missionImages = imgUrlList;
+
+        console.log(value)
       this.service.AddMission(value).subscribe((data: any) => {
 
         if (data.result == 1) {
